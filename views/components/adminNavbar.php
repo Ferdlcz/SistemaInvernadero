@@ -22,6 +22,9 @@
                             <a class="nav-link active" aria-current="page" href="../usuarios.php">Usuarios</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="./registroSiembras.php">Ver registro de siembras</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="../registrarUsuario.php">Registrar Usuario</a>
                         </li>
                         <li class="nav-item">
