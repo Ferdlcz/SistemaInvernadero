@@ -15,8 +15,6 @@ if (!empty($_POST)) {
     $fechaSiembra = $_POST['fechaSiembra'];
     $numInvernadero = $_POST['numInvernadero'];
 
-    $idUsuario = $_SESSION['id'];
-
     $siembraRegistrada = $siembraModel->insertarSiembra($idUsuario, $nombreSemilla,  $tipoPlanta, $numCharolas, $fechaSiembra, $numInvernadero);
 
     if ($siembraRegistrada) {
