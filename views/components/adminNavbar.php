@@ -19,13 +19,13 @@
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../usuarios.php">Usuarios</a>
+                            <a class="nav-link active" aria-current="page" href="./usuarios.php">Usuarios</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="./registroSiembras.php">Ver registro de siembras</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../registrarUsuario.php">Registrar Usuario</a>
+                            <a class="nav-link active" aria-current="page" href="./registrarUsuario.php">Registrar Usuario</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="../controller/logout.php">Cerrar sesión</a>
