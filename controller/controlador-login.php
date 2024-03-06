@@ -17,12 +17,14 @@ if (!empty($_POST['btningresar'])) {
                 $_SESSION["id"] = $datos->id;
                 $_SESSION["nombre"] = $datos->nombre;
                 $_SESSION["apellidos"] = $datos->apellidos;
+                $_SESSION["rol"] = $rol;
                 header("location: ./views/administrador.php");
             } elseif ($rol == 'user') {
                 // Usuario es normal
                 $_SESSION["id"] = $datos->id;
                 $_SESSION["nombre"] = $datos->nombre;
                 $_SESSION["apellidos"] = $datos->apellidos;
+                $_SESSION["rol"] = $rol;
                 header("location: ./views/panelUsuario.php");
             } else {
                 echo "<div class='alert alert-danger'>Acceso Denegado</div>";

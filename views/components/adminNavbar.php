@@ -2,7 +2,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <!-- Agrega tu logo aquí -->
-                <img src="/img/ivp-removebg-preview.png alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                <img src="../img/ivp-removebg-preview.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
                 <!-- Fin del logo -->
                 <?php
                echo $_SESSION["nombre"]." ". $_SESSION["apellidos"];
@@ -25,7 +25,7 @@
                             <a class="nav-link active" aria-current="page" href="../registrarUsuario.php">Registrar Usuario</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/controller/logout.php">Cerrar sesión</a>
+                            <a class="nav-link active" aria-current="page" href="../controller/logout.php">Cerrar sesión</a>
                         </li>
                     </ul>
                 </div>

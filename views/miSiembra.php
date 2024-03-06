@@ -4,6 +4,9 @@ session_start();
 if (empty($_SESSION["id"])) {
     header("location: ../index.php");
 }
+
+
+include '../controller/miSiembra.controller.php'
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +23,6 @@ if (empty($_SESSION["id"])) {
 <?php
     include './components/userNavbar.php';
 
-    include './components/registrarPlantada.php';
 
 ?>
 
