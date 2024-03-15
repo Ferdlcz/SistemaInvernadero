@@ -18,6 +18,7 @@ if (empty($_SESSION["id"])) {
 <body>
 
 <?php
+
     include './components/userNavbar.php';
 
     include './components/registrarPlantada.php';

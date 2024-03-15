@@ -14,6 +14,8 @@ include_once "../config/dbconnection.php";
 // Verifica si se ha enviado el formulario de registro
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Obtén los datos del formulario
+    $nombre = $_POST["nombre"];
+    $apellidos = $_POST["apellidos"];
     $username = $_POST["username"];
     $email = $_POST["email"];
     $phone = $_POST["phone"];
@@ -24,16 +26,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     // Prepara la consulta SQL para insertar un nuevo usuario
-    $sql = $conexion->prepare("INSERT INTO Usuarios (usuario, correo_electronico, telefono, contraseña, rol) VALUES (?, ?, ?, ?, ?)");
+    $sql = $conexion->prepare("INSERT INTO Usuarios (nombre, apellidos, usuario, correo_electronico, telefono, contraseña, rol) VALUES (?, ?, ?, ?, ?, ?, ?)");
 
     // Vincula los parámetros y ejecuta la consulta
-    $sql->bind_param("sssss", $username, $email, $phone, $hashedPassword, $role);
+    $sql->bind_param("ssssiss", $nombre, $apellidos,$username, $email, $phone, $hashedPassword, $role);
     $sql->execute();
 
     // Cierra la conexión y redirige después de agregar el nuevo usuario
     $sql->close();
     $conexion->close();
-    header("location: usuarios.php"); // Reemplaza 'lista_usuarios.php' con la página donde muestras la lista de usuarios
+    header("location: usuarios.php");
     exit();
 }
 ?>

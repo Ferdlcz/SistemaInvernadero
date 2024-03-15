@@ -5,13 +5,15 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>Nombre del dueño</th>
+        <th>Nombre del dueño</th>
           <th>Apellidos del dueño</th>
-          <th>Nombre de la semilla</th>
-          <th>Tipo de planta</th>
+          <th>Variacion</th>
           <th>Número de charolas</th>
           <th>Fecha de siembra</th>
           <th>Número de invernadero</th>
+          <th>Fecha aproximada de entrega</th>
+          <th>Fecha de entrega</th>
+          <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
@@ -20,11 +22,12 @@
                 <tr>
                     <td><?php echo $plantacion['NombreDueño']; ?></td>
                     <td><?php echo $plantacion['ApellidosDueño']; ?></td>
-                    <td><?php echo $plantacion['NombreSemilla']; ?></td>
-                    <td><?php echo $plantacion['TipoPlanta']; ?></td>
+                    <td><?php echo $plantacion['Variedad']; ?></td>
                     <td><?php echo $plantacion['NumeroCharolas']; ?></td>
                     <td><?php echo $plantacion['FechaSiembra']; ?></td>
                     <td><?php echo $plantacion['NumeroInvernadero']; ?></td>
+                    <td><?php echo $plantacion['FechaAproxEntrega']; ?></td>
+                    <td><?php echo $plantacion['FechaEntrega']; ?></td>
                 </tr>
       <?php endforeach; ?>
 
