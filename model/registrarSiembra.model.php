@@ -7,9 +7,9 @@ class Siembra {
         $this->conexion = $conexion;
     }
 
-    public function insertarSiembra($idUsuario, $nombreSemilla, $tipoPlanta, $numCharolas, $fechaSiembra, $numInvernadero) {
-        $stmt = $this->conexion->prepare("CALL InsertarPlantacion(?,?,?,?,?,?)");
-        $stmt->bind_param("issisi", $idUsuario, $nombreSemilla, $tipoPlanta, $numCharolas, $fechaSiembra, $numInvernadero);
+    public function insertarSiembra($idUsuario, $variedad, $numCharolas, $fechaSiembra, $numInvernadero, $fechaAproxEntrega, $fechaEntrega) {
+        $stmt = $this->conexion->prepare("CALL InsertarPlantacion(?,?,?,?,?,?,?)");
+        $stmt->bind_param("isisiss", $idUsuario, $variedad, $numCharolas, $fechaSiembra, $numInvernadero, $fechaAproxEntrega, $fechaEntrega);
         $stmt->execute();
     
         if ($stmt->affected_rows > 0) {
