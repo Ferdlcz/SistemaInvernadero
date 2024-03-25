@@ -6,31 +6,31 @@ if (!empty($_POST['btningresar'])) {
         $Username = $_POST["Username"];
         $Password = $_POST["Password"];
 
-        $sql = $conexion->query("SELECT * FROM Usuarios WHERE usuario='$Username' AND contraseña='$Password'");
+        $sql = $conexion->prepare("SELECT * FROM Usuarios WHERE usuario=?");
+        $sql->bind_param("s", $Username);
+        $sql->execute();
+        $result = $sql->get_result();
 
-        if ($datos = $sql->fetch_object()) {
+        if ($result->num_rows == 1) {
+            $row = $result->fetch_assoc();
+            if (password_verify($Password, $row['contraseña'])) {
+                // Contraseña válida, iniciar sesión
+                $_SESSION["id"] = $row['id'];
+                $_SESSION["nombre"] = $row['nombre'];
+                $_SESSION["apellidos"] = $row['apellidos'];
+                $_SESSION["rol"] = $row['rol'];
 
-            $rol = $datos->rol;
-
-            if ($rol == 'admin') {
-                // Usuario es administrador
-                $_SESSION["id"] = $datos->id;
-                $_SESSION["nombre"] = $datos->nombre;
-                $_SESSION["apellidos"] = $datos->apellidos;
-                $_SESSION["rol"] = $rol;
-                header("location: ./views/administrador.php");
-            } elseif ($rol == 'user') {
-                // Usuario es normal
-                $_SESSION["id"] = $datos->id;
-                $_SESSION["nombre"] = $datos->nombre;
-                $_SESSION["apellidos"] = $datos->apellidos;
-                $_SESSION["rol"] = $rol;
-                header("location: ./views/panelUsuario.php");
+                if ($row['rol'] == 'admin') {
+                    header("location: ./views/administrador.php");
+                } elseif ($row['rol'] == 'user') {
+                    header("location: ./views/panelUsuario.php");
+                }
+                exit(); // Importante: detener la ejecución después de redirigir
             } else {
-                echo "<div class='alert alert-danger'>Acceso Denegado</div>";
+                echo "<div class='alert alert-danger'>Contraseña incorrecta</div>";
             }
         } else {
-            echo "<div class='alert alert-danger'>Acceso Denegado</div>";
+            echo "<div class='alert alert-danger'>Usuario no encontrado</div>";
         }
     } else {
         echo "<div class='alert alert-danger'>Campos vacíos</div>";

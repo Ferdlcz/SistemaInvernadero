@@ -1,9 +1,12 @@
 <?php
 
 session_start();
-if (empty($_SESSION["id"])) {
-    header("location: ../index.php");
+if (empty($_SESSION["id"]) || $_SESSION["rol"] !== "admin") {
+    echo "<script>alert('Acceso denegado');</script>";
+    echo "<script>window.location.href = '../index.php';</script>";
+    exit;
 }
+
 
 
 include '../controller/registroSiembras.controller.php'

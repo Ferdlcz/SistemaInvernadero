@@ -21,6 +21,7 @@ if (!empty($_POST)) {
 
     if ($siembraRegistrada) {
         echo "<script>alert('Siembra registrada exitosamente');</script>";
+        header("Location: ../views/miSiembra.php");
     } else {
         
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);

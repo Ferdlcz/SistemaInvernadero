@@ -18,16 +18,22 @@
       </thead>
       <tbody>
 
-      <?php foreach ($plantaciones as $plantacion) : ?>
+      <?php foreach ($datosSiembras as $idSiembra => $siembra) : ?>
                 <tr>
-                    <td><?php echo $plantacion['NombreDueño']; ?></td>
-                    <td><?php echo $plantacion['ApellidosDueño']; ?></td>
-                    <td><?php echo $plantacion['Variedad']; ?></td>
-                    <td><?php echo $plantacion['NumeroCharolas']; ?></td>
-                    <td><?php echo $plantacion['FechaSiembra']; ?></td>
-                    <td><?php echo $plantacion['NumeroInvernadero']; ?></td>
-                    <td><?php echo $plantacion['FechaAproxEntrega']; ?></td>
-                    <td><?php echo $plantacion['FechaEntrega']; ?></td>
+                    <td><?php echo $siembra['NombreDueño']; ?></td>
+                    <td><?php echo $siembra['ApellidosDueño']; ?></td>
+                    <td><?php echo $siembra['Variedad']; ?></td>
+                    <td><?php echo $siembra['NumeroCharolas']; ?></td>
+                    <td><?php echo $siembra['FechaSiembra']; ?></td>
+                    <td><?php echo $siembra['NumeroInvernadero']; ?></td>
+                    <td><?php echo $siembra['FechaAproxEntrega']; ?></td>
+                    <td><?php echo $siembra['FechaEntrega']; ?></td>
+                    <td>                    
+                      <form method="post" action="../controller/eliminarMiSiembra.controller.php">
+                        <input type="hidden" name="siembra_id" value="<?php echo $idSiembra; ?>">
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                      </form>
+                    </td>
                 </tr>
       <?php endforeach; ?>
 

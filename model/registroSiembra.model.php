@@ -15,6 +15,7 @@ class SiembrasModel {
         $stmt->close();
         return $resultado->fetch_all(MYSQLI_ASSOC);
     }
+
 }
 
 ?>
