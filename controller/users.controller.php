@@ -7,7 +7,13 @@ include '../model/users.model.php';
 
 $userModel = new UserModel($conexion);
 
-$users = $userModel->getAllUsers();
+$usuarios = $userModel->getAllUsers();
+
+$datosUsuario = [];
+
+foreach ($usuarios as $usuario){
+    $datosUsuario[$usuario['id']] = $usuario;
+}
 
 include '../views/components/tablaUsuarios.php'
 
